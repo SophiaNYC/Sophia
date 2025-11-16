@@ -79,6 +79,7 @@
       animation-fill-mode:forwards, both;
       animation-iteration-count:1, infinite;
 }
+    
 .hero-image-box::before{
       content:"";
       position:absolute;
@@ -137,6 +138,27 @@
       display:block;
       border-radius:16px;
     }
+    .hero-image-box {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-box img {
+    flex: 1;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 0 18px rgba(255,255,255,0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-image-box img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 28px rgba(255,255,255,0.25);
+}
+
     @media(max-width:700px){
       .hero-image-box img{height:220px;}
     }
@@ -334,12 +356,10 @@
    
     <!-- БОЛЬШАЯ ФОТО НАД ОБЕИМИ СТОЛБЦАМИ -->
     <div class="hero-image-box">
-  <div class="hero-inner">
-    <!-- тут любое твоё вертикальное фото -->
-    <img src="about-hero.jpg" alt="Sophia">
-    <div class="hero-caption">
-    
-    </div>
+  <div class="hero-inner-multi">
+    <img src="about-1.jpg" alt="Sophia photo 1">
+    <img src="about-2.jpg" alt="Sophia photo 2">
+    <img src="about-3.jpg" alt="Sophia photo 3">
   </div>
 </div>
 
