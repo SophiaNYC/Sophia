@@ -55,7 +55,7 @@
       font-size:42px;
       letter-spacing:0.22em;
       text-transform:uppercase;
-      margin:20px 0 26px;      /* чуть ближе к меню и фото */
+      margin:20px 0 26px;
       color:#f5f5ff;
       text-align:center;
       opacity:0;
@@ -74,7 +74,12 @@
       height:2px;
       border-radius:999px;
       margin:16px auto 0;
-      background:linear-gradient(90deg,rgba(111,177,255,0.0),rgba(157,197,255,0.9),rgba(111,177,255,0.0));
+      background:linear-gradient(
+        90deg,
+        rgba(111,177,255,0.0),
+        rgba(157,197,255,0.9),
+        rgba(111,177,255,0.0)
+      );
       box-shadow:0 0 18px rgba(140,190,255,0.85);
       opacity:0.9;
     }
@@ -174,7 +179,7 @@
       animation:fadeInUp 0.9s ease-out 0.7s forwards;
     }
 
-    /* PROFILE CARD */
+    /* PROFILE CARD – как было */
     .card{
       background:rgba(7,18,40,0.9);
       border-radius:16px;
@@ -193,10 +198,15 @@
     .profile-label{
       color:#aeb4d7;
       text-transform:uppercase;
+      letter-spacing:0.14em;
       font-size:11px;
+      display:block;
       margin-bottom:2px;
     }
-    .profile-value{font-size:14px;color:#e6e9ff;}
+    .profile-value{
+      font-size:14px;
+      color:#e6e9ff;
+    }
 
     /* BUTTON */
     .booking-wrapper{text-align:center;margin-top:8px;}
@@ -282,33 +292,112 @@
     <!-- CONTENT GRID -->
     <section class="about-layout">
 
-      <!-- LEFT TEXT -->
+      <!-- LEFT TEXT – полный текст -->
       <div class="left-text">
         <h2 class="section-title">Story</h2>
 
-        <p>I’m Sophia — a 25-year-old wanderer who followed her curiosity right into the American Wonderland.</p>
-        <p>Think of me as an irresistible, grown-up version of Alice… the one who smiles a little too mysteriously and always knows where the most magical doors are hidden.</p>
-        <p>There’s a touch of mischief in everything I do — a soft glimmer in my eyes, a playful tilt in my voice.</p>
-        <p>Time behaves strangely around me — it slows down, sweetens, and wraps itself in a warm glow.</p>
-        <p>In this American Wonderland, let me be your enchanting guide — the girl who teases reality and tilts the story in unexpected ways.</p>
-        <p>After we spend time together, you’ll feel that delicious, lingering after-glow — like a secret only we share.</p>
+        <p>
+          I’m Sophia — a 25-year-old wanderer who followed her curiosity right into the American Wonderland.
+          Think of me as an irresistible, grown-up version of Alice… the one who smiles a little too mysteriously
+          and always knows where the most magical doors are hidden.
+        </p>
+        <p>
+          There’s a touch of mischief in everything I do — a soft glimmer in my eyes, a playful tilt in my voice,
+          a quiet confidence that makes the world around me feel like it’s leaning in to listen. My long, natural hair
+          slips over my shoulders like a whisper, and my graceful lines move with the kind of elegance that invites your
+          imagination to follow.
+        </p>
+        <p>
+          Time behaves strangely around me — it slows down, sweetens, and wraps itself in a warm glow.
+          I love creating moments that feel like stepping into a secret garden: personal, intimate in atmosphere,
+          full of laughter, curiosity, and that flutter of excitement you can’t quite explain.
+        </p>
+        <p>
+          In this American Wonderland, let me be your enchanting guide — the girl who teases reality, tilts the story in
+          unexpected ways, and leaves you wondering how someone so dreamy could be standing right in front of you.
+        </p>
+        <p>
+          I can’t wait to meet you… after all, every Wonderland needs the right person to explore it with.
+        </p>
+        <p>
+          After we spend time together, you’ll feel that delicious, lingering after-glow — like someone slipped a little
+          secret into your day, one only the two of us will recognize.
+        </p>
+        <p>
+          You’ll notice a quiet surge of energy… not loud, not obvious, just that subtle spark that makes the world look
+          a bit brighter and your thoughts a touch bolder.
+        </p>
+        <p>
+          Let’s create memories that resurface unexpectedly — in certain scents, in a melody, in random moments when you
+          catch yourself smiling without knowing why.
+        </p>
+        <p>
+          Those memories will play in your mind with the same mischievous charm I bring everywhere I go — warm, teasing,
+          and just a little too enticing to ignore.
+        </p>
+        <p>
+          And I’ll admit… I can already feel that delicious tension of anticipation, that soft thrill of a story that’s
+          about to begin.
+        </p>
       </div>
 
-      <!-- RIGHT PROFILE -->
+      <!-- RIGHT PROFILE – как было -->
       <div class="right-column">
         <div class="card">
           <h2 class="section-title">Profile</h2>
           <ul class="profile-list">
-            <li><span class="profile-label">Nationality</span><span class="profile-value">Slavic</span></li>
-            <li><span class="profile-label">Languages</span><span class="profile-value">English, Russian</span></li>
-            <li><span class="profile-label">Education</span><span class="profile-value">University</span></li>
-            <li><span class="profile-label">Hair</span><span class="profile-value">Blonde</span></li>
-            <li><span class="profile-label">Eyes</span><span class="profile-value">Brown</span></li>
-            <li><span class="profile-label">Height</span><span class="profile-value">174 cm</span></li>
-            <li><span class="profile-label">Weight</span><span class="profile-value">55 kg</span></li>
-            <li><span class="profile-label">Dress</span><span class="profile-value">S</span></li>
-            <li><span class="profile-label">Measurements</span><span class="profile-value">34B</span></li>
-            <li><span class="profile-label">Foot size</span><span class="profile-value">38.5–39</span></li>
+            <li>
+              <span class="profile-label">Nationality</span>
+              <span class="profile-value">Slavic</span>
+            </li>
+            <li>
+              <span class="profile-label">Languages spoken</span>
+              <span class="profile-value">English, Russian</span>
+            </li>
+            <li>
+              <span class="profile-label">Education</span>
+              <span class="profile-value">University</span>
+            </li>
+            <li>
+              <span class="profile-label">Hair color</span>
+              <span class="profile-value">Blonde</span>
+            </li>
+            <li>
+              <span class="profile-label">Eye color</span>
+              <span class="profile-value">Brown</span>
+            </li>
+            <li>
+              <span class="profile-label">Height</span>
+              <span class="profile-value">5'9&quot; (174 cm)</span>
+            </li>
+            <li>
+              <span class="profile-label">Weight</span>
+              <span class="profile-value">55 kg</span>
+            </li>
+            <li>
+              <span class="profile-label">Smoking</span>
+              <span class="profile-value">No</span>
+            </li>
+            <li>
+              <span class="profile-label">Dress size</span>
+              <span class="profile-value">S</span>
+            </li>
+            <li>
+              <span class="profile-label">Measurements</span>
+              <span class="profile-value">34B</span>
+            </li>
+            <li>
+              <span class="profile-label">Panties</span>
+              <span class="profile-value">S</span>
+            </li>
+            <li>
+              <span class="profile-label">Garter belt</span>
+              <span class="profile-value">S</span>
+            </li>
+            <li>
+              <span class="profile-label">Foot size</span>
+              <span class="profile-value">38.5–39 (US 9)</span>
+            </li>
           </ul>
         </div>
       </div>
