@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Contacts – Sophia</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 body {
   margin: 0;
@@ -45,18 +46,40 @@ body::before {
   z-index: 1;
 }
 
+.home-btn {
+  display:inline-block;
+  padding:7px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.18);
+  color:#e4e7f5;
+  text-decoration:none;
+  letter-spacing:0.14em;
+  font-size:12px;
+  text-transform:uppercase;
+  margin-bottom:26px;
+  transition:.3s ease;
+}
+.home-btn:hover{
+  background:rgba(255,255,255,0.18);
+  border-color:rgba(255,255,255,0.32);
+  color:white;
+}
+
 h1 {
-  font-size: 44px;
-  margin-bottom: 14px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size:32px;
+  margin-bottom:14px;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:#f3f2ff;
 }
 
 .subtitle {
-  font-size: 16px;
-  color: #cfd4ef;
-  margin-bottom: 40px;
-  line-height: 1.6;
+  font-size:15px;
+  color:#cfd4ef;
+  margin-bottom:40px;
+  line-height:1.6;
 }
 
 .block {
@@ -87,6 +110,8 @@ h1 {
 
 <body>
 <div class="page">
+
+<a class="home-btn" href="index.html">Home</a>
 
 <h1>Contacts</h1>
 <div class="subtitle">All ways to reach me directly. I value privacy and respond personally.</div>
