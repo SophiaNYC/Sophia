@@ -101,55 +101,33 @@
       box-shadow:0 18px 40px rgba(2,6,23,0.9);
       background:rgba(4,10,25,0.85);
 }
-    .hero-inner-multi{
+    
+.hero-inner-multi{
   display:flex;
   justify-content:center;
-  gap:22px;
-  padding:28px;
+  gap:26px;
+  padding:30px 20px;
   position:relative;
   z-index:2;
 }
 
 .hero-inner-multi img{
-  /* БАЗОВАЯ ГЛЯНЦЕВАЯ СТИЛИСТИКА */
-.hero-inner-multi{
-  display:flex;
-  justify-content:center;
-  gap:28px;
-  padding:25px 0 40px 0;
-}
-
-/* 1-е фото (вертикальное) */
-.hero-inner-multi img:nth-child(1){
-  width:260px;
-  height:360px;     /* увеличено — видно голову + ноги */
+  width:290px;
+  height:300px;
   object-fit:cover;
   border-radius:20px;
-  box-shadow:0 28px 60px rgba(2,6,23,0.90);
+  box-shadow:0 22px 50px rgba(2,6,23,0.85);
   opacity:0;
-  transform:translateY(18px);
-  animation:fadeInUp 0.9s ease-out 0.5s forwards;
+  transform:translateY(14px);
+  animation:fadeInUp 0.8s ease-out 0.5s forwards;
+  transition:0.25s;
 }
 
-/* 2-е и 3-е фото (горизонтальные, широкие) */
-.hero-inner-multi img:nth-child(2),
-.hero-inner-multi img:nth-child(3){
-  width:340px;        /* шире */
-  height:260px;       /* ниже, но широкие */
-  object-fit:cover;
-  border-radius:20px;
-  box-shadow:0 28px 60px rgba(2,6,23,0.90);
-  opacity:0;
-  transform:translateY(18px);
-  animation:fadeInUp 0.9s ease-out 0.6s forwards;
-}
-
-/* Глянцевый hover-эффект */
 .hero-inner-multi img:hover{
   transform:translateY(-4px);
-  box-shadow:0 38px 70px rgba(100,145,255,0.65);
+  box-shadow:0 30px 60px rgba(100,145,255,0.55);
 }
-  
+
 .hero-inner-multi img:hover{
   transform:translateY(-3px);
   box-shadow:0 26px 55px rgba(100,145,255,0.65);
