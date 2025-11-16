@@ -6,27 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         :root {
-            --bg: #f7f3ef;
-            --bg-alt: #ffffff;
-            --text: #1b1b1b;
-            --muted: #8a7f73;
-            --accent: #1f1c19;
-            --border: #e1d6c8;
-            --radius: 16px;
-            --shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
+    --bg: #050814;
+    --bg-alt: #0b1020;
+    --text: #f7f7fb;
+    --muted: #8f94b8;
+    --accent: #f1d3a3;      /* тёплый акцент можно потом сменить */
+    --border: #20253a;
+    --radius: 16px;
+    --shadow: 0 14px 40px rgba(0,0,0,0.7);
+}
+        
         * {
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                         system-ui, -system-ui, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top left,#fdf7f0,#f3eee8);
-            color: var(--text);
-        }
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                 system-ui, -system-ui, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top left,#0b1020,#050814);
+    color: var(--text);
+    position: relative;
+    overflow-x: hidden;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(90,140,255,0.25), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(60,200,255,0.18), transparent 55%),
+        radial-gradient(circle at 50% 120%, rgba(40,70,200,0.45), transparent 55%);
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    filter: blur(1.5px);
+    animation: moveGlow 22s infinite alternate ease-in-out;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes moveGlow {
+    0% {
+        transform: translate3d(-4%, -2%, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(3%, 4%, 0) scale(1.04);
+    }
+    100% {
+        transform: translate3d(-2%, 6%, 0) scale(1.02);
+    }
+}
 
         a {
             color: inherit;
