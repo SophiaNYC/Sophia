@@ -16,10 +16,13 @@
     }
     .page{max-width:1080px;margin:0 auto;}
 
-    /* TOP NAV – как на других страницах */
+    /* TOP NAV */
     .topnav{
-      display:flex;flex-wrap:wrap;gap:16px;
-      align-items:center;justify-content:space-between;
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
       margin-bottom:32px;
       opacity:0;
       animation:fadeIn 0.6s ease-out 0.1s forwards;
@@ -32,9 +35,15 @@
     }
     .nav-links{display:flex;flex-wrap:wrap;gap:10px;}
     .nav-links a{
-      color:#e4e7ef;text-decoration:none;font-size:12px;letter-spacing:0.16em;
-      text-transform:uppercase;padding:6px 14px;border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.04);
+      color:#e4e7ef;
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      padding:6px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background:rgba(255,255,255,0.04);
       transition:0.25s;
     }
     .nav-links a:hover{
@@ -47,15 +56,17 @@
       box-shadow:0 0 18px rgba(120,170,255,0.55);
     }
 
-    /* HERO */
+    /* HERO GRID */
     .hero{
       display:grid;
-      grid-template-columns:1.4fr 1fr;
-      gap:30px;
-      align-items:stretch; /* чтобы текст и фото тянулись по высоте вместе */
+      grid-template-columns:1.35fr 1.1fr;  /* фото шире и ближе к тексту */
+      gap:22px;
+      align-items:stretch;
     }
     @media(max-width:900px){
-      .hero{grid-template-columns:1fr;}
+      .hero{
+        grid-template-columns:1fr;
+      }
     }
 
     .hero-text{
@@ -137,31 +148,32 @@
       transform:translateY(-1px);
     }
 
-    /* HERO RIGHT – ПОДСВЕЧЕННОЕ ФОТО ВМЕСТО СИНЕЙ РАМКИ */
+    /* HERO RIGHT – ПОДСВЕЧЕННОЕ ФОТО ВМЕСТО РАМКИ */
     .hero-photo-box{
-  position:relative;
-  border-radius:32px;
-  background:radial-gradient(circle at 0% 0%,#3343a5,#050818 65%);
-  border:1px solid rgba(160,190,255,0.45);
-  overflow:hidden;
-  box-shadow:0 32px 75px rgba(2,6,23,0.9);
-  opacity:0;
-  transform:translateY(22px);
-  animation:fadeInUp 0.9s ease-out 0.35s forwards,
-           softGlow 7s ease-in-out 1.4s infinite alternate;
-
-  width:100%;
-  min-height:100%;
-}
-
+      position:relative;
+      border-radius:30px;
+      background:radial-gradient(circle at 0% 0%,#3343a5,#050818 70%);
+      border:1px solid rgba(160,190,255,0.55);
+      overflow:hidden;
+      box-shadow:0 28px 70px rgba(2,6,23,0.9);
+      opacity:0;
+      transform:translateY(22px);
+      animation:fadeInUp 0.9s ease-out 0.35s forwards,
+               softGlow 7s ease-in-out 1.4s infinite alternate;
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      min-height:480px;         /* визуально подогнано под высоту текста */
+      margin-right:-10px;       /* немного ближе к центру */
+    }
 
     .hero-photo-box::before{
       content:"";
       position:absolute;
-      inset:-20%;
+      inset:-18%;
       background:
-        radial-gradient(circle at 10% 0%,rgba(163,199,255,0.45),transparent 60%),
-        radial-gradient(circle at 90% 80%,rgba(117,167,255,0.40),transparent 60%);
+        radial-gradient(circle at 10% 0%,rgba(163,199,255,0.55),transparent 60%),
+        radial-gradient(circle at 90% 85%,rgba(117,167,255,0.45),transparent 60%);
       mix-blend-mode:screen;
       opacity:0.9;
       pointer-events:none;
@@ -174,7 +186,23 @@
       height:100%;
       object-fit:cover;
       display:block;
-      border-radius:22px;
+      border-radius:24px;
+      transform:translateY(2px);
+      transition:transform 0.4s ease, box-shadow 0.4s ease;
+      box-shadow:0 18px 45px rgba(0,0,0,0.85);
+    }
+
+    .hero-photo-box img:hover{
+      transform:translateY(-4px) scale(1.01);
+      box-shadow:0 26px 70px rgba(90,140,255,0.75);
+    }
+
+    @media(max-width:900px){
+      .hero-photo-box{
+        margin-top:18px;
+        margin-right:0;
+        min-height:420px;
+      }
     }
 
     /* Animations */
@@ -199,11 +227,6 @@
         box-shadow:0 20px 46px rgba(2,6,23,0.85);
         transform:translateY(0);
       }
-    }
-    @keyframes glowPulse{
-      0%{text-shadow:0 0 0 rgba(160,200,255,0.0);}
-      50%{text-shadow:0 0 14px rgba(160,200,255,0.85);}
-      100%{text-shadow:0 0 4px rgba(160,200,255,0.4);}
     }
   </style>
 </head>
@@ -231,6 +254,7 @@
 
     <!-- HERO -->
     <section class="hero">
+      <!-- ЛЕВАЯ ЧАСТЬ: ТЕКСТ -->
       <div class="hero-text">
         <div class="hero-label">WELCOME</div>
 
@@ -240,24 +264,20 @@
             I am Sophia, a woman woven from moonlit whispers and forbidden dreams, here to pull you gently yet irresistibly into my orbit.
           </p>
           <p>
-            If you’re longing for a presence that ignites the moment you enter the room…
-            if you crave a connection that hums with tension, mystery, and the promise of something beautifully intense…
-            you’ve already taken your first step toward me.
+            If you’re longing for a presence that ignites the moment you enter the room… if you crave a connection that hums with tension,
+            mystery, and the promise of something beautifully intense… you’ve already taken your first step toward me.
           </p>
           <p>
-            I am the spark in the silence,
-            the warmth behind a slow smile,
-            the soft danger of a thought you can’t shake.
+            I am the spark in the silence, the warmth behind a slow smile, the soft danger of a thought you can’t shake.
           </p>
           <p>
-            Explore my world with an open mind and a bold heart — each line, each glance, each hidden corner is crafted to awaken your senses in ways you didn’t expect.
-            And when you feel that quiet pull…
-            that magnetic ache of wanting just a little more…
+            Explore my world with an open mind and a bold heart — each line, each glance, each hidden corner is crafted to awaken your senses
+            in ways you didn’t expect. And when you feel that quiet pull… that magnetic ache of wanting just a little more…
           </p>
           <p>Don’t ignore it.</p>
           <p>
-            Reach out. Let the story begin.
-            I’m already feeling the thrill of your attention — and the delicious anticipation of what may unfold between us.
+            Reach out. Let the story begin. I’m already feeling the thrill of your attention — and the delicious anticipation of what may
+            unfold between us.
           </p>
         </div>
 
@@ -267,7 +287,7 @@
         </div>
       </div>
 
-      <!-- ПРАВАЯ КОЛОНКА: ПОДСВЕЧЕННОЕ ФОТО -->
+      <!-- ПРАВАЯ ЧАСТЬ: ПОДСВЕЧЕННОЕ ФОТО -->
       <div class="hero-photo-box">
         <img src="home-sophia.jpg" alt="Sophia portrait">
       </div>
