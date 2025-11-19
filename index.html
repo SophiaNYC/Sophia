@@ -139,19 +139,21 @@
 
     /* HERO RIGHT – ПОДСВЕЧЕННОЕ ФОТО ВМЕСТО СИНЕЙ РАМКИ */
     .hero-photo-box{
-      position:relative;
-      border-radius:26px;
-      background:radial-gradient(circle at 0% 0%,#3343a5,#050818 65%);
-      border:1px solid rgba(160,190,255,0.45);
-      overflow:hidden;
-      box-shadow:0 26px 65px rgba(2,6,23,0.9);
-      opacity:0;
-      transform:translateY(22px);
-      animation:fadeInUp 0.9s ease-out 0.35s forwards,
-               softGlow 7s ease-in-out 1.4s infinite alternate;
-      display:flex;
-      align-items:stretch;
-    }
+  position:relative;
+  border-radius:32px;
+  background:radial-gradient(circle at 0% 0%,#3343a5,#050818 65%);
+  border:1px solid rgba(160,190,255,0.45);
+  overflow:hidden;
+  box-shadow:0 32px 75px rgba(2,6,23,0.9);
+  opacity:0;
+  transform:translateY(22px);
+  animation:fadeInUp 0.9s ease-out 0.35s forwards,
+           softGlow 7s ease-in-out 1.4s infinite alternate;
+
+  width:100%;
+  min-height:100%;
+}
+
 
     .hero-photo-box::before{
       content:"";
