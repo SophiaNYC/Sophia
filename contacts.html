@@ -99,7 +99,7 @@
       }
     }
 
-    /* ГЛОУ-КАРТОЧКИ ДЛЯ ВСЕГО БЛОКА CONTACTS */
+    /* GLOW-карточки (Direct contact / Booking rules / Form) */
     .card{
       position:relative;
       background:rgba(7,18,40,0.92);
@@ -113,7 +113,7 @@
       opacity:0;
       transform:translateY(22px);
       animation:fadeInUp 0.9s ease-out 0.45s forwards,
-                 softGlow 7s ease-in-out 2s infinite alternate;
+               softGlow 7s ease-in-out 2s infinite alternate;
     }
 
     .card::before{
@@ -128,7 +128,7 @@
       z-index:-1;
     }
 
-    /* Заголовки внутри карточек — чуть компактнее и как в Honorarium */
+    /* Заголовки внутри карточек */
     .card .section-title{
       font-size:16px;
       letter-spacing:0.20em;
@@ -293,7 +293,7 @@
       display:none;
     }
 
-    /* CONTACTS — верхняя карточка */
+    /* CONTACTS — верхняя карточка c описанием */
     .contacts-intro-card{
       background:rgba(7,18,40,0.92);
       border-radius:22px;
@@ -306,7 +306,7 @@
       opacity:0;
       transform:translateY(22px);
       animation:fadeInUp 0.9s ease-out 0.35s forwards,
-                 softGlow 7s ease-in-out 1.6s infinite alternate;
+               softGlow 7s ease-in-out 1.6s infinite alternate;
     }
 
     .contacts-intro-card p{
@@ -474,7 +474,7 @@
 
         <div class="form-row">
           <div>
-            <input type="text" name="Phone number" placeholder="Phone number *" required pattern="[0-9+()\-\s]{7,}">
+            <input type="text" name="Phone number" placeholder="Phone number *" required pattern="[0-9+()\-\\s]{7,}">
             <div class="error-message" data-for="Phone number"></div>
           </div>
           <div>
@@ -559,7 +559,7 @@
         if (!input.value.trim()) {
           hasError = true;
           errorEl.textContent = 'This field is required.';
-        } else if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+        } else if (input.type === 'email' && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(input.value.trim())) {
           hasError = true;
           errorEl.textContent = 'Please enter a valid e-mail.';
         } else if (input.name === 'Phone number' && !/[0-9]/.test(input.value)) {
