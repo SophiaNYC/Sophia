@@ -263,6 +263,42 @@
       color:#ffb3b3;
       display:none;
     }
+    /* CONTACTS — верхняя карточка */
+.contacts-intro-card{
+  background:rgba(7,18,40,0.92);
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,0.16);
+  padding:28px 30px 30px;
+  box-shadow:0 24px 55px rgba(2,6,23,0.8);
+  backdrop-filter:blur(10px);
+  margin-bottom:40px;
+
+  opacity:0;
+  transform:translateY(22px);
+  animation:fadeInUp 0.9s ease-out 0.35s forwards,
+             softGlow 7s ease-in-out 1.6s infinite alternate;
+}
+
+.contacts-intro-card p{
+  font-size:15px;
+  line-height:1.75;
+  color:#e4e9ff;
+  margin-bottom:14px;
+}
+
+.contacts-intro-card p:last-child{
+  margin-bottom:0;
+}
+
+.contacts-title{
+  font-size:32px;
+  font-weight:600;
+  letter-spacing:0.22em;
+  color:#f5f6ff;
+  text-transform:uppercase;
+  margin:0 0 18px;
+}
+
   </style>
 </head>
 
