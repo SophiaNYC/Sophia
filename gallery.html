@@ -1,29 +1,316 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8">
-<title>Gallery – Sophia</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-  body {
-    margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",sans-serif;
-    background:radial-gradient(circle at top left,#0b1020,#071a2e);
-    color:#e4e7ef;
-    padding:40px 20px 60px;
-  }
-  .page{max-width:1080px;margin:0 auto;}
-  .topnav{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-bottom:32px;}
-  .logo{font-size:24px;letter-spacing:0.3em;text-transform:uppercase;}
-  .nav-links{display:flex;flex-wrap:wrap;gap:10px;}
-  .nav-links a{
-    color:#e4e7ef;text-decoration:none;font-size:12px;letter-spacing:0.16em;
-    text-transform:uppercase;padding:6px 14px;border-radius:999px;
-    border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.04);
-    transition:0.25s;
-  }
-  .nav-links a:hover{background:rgba(255,255,255,0.18);box-shadow:0 0 14px rgba(120,170,255,0.45);transform:translateY(-1px);}
-  .nav-links a.current{background:rgba(255,255,255,0.22);box-shadow:0 0 18px rgba(120,170,255,0.55);}
-</style></head>
-<body><div class="page">
-<div class="topnav"><div class="logo">SOPHIA</div><div class="nav-links"><a href="index.html" class="">Home</a><a href="about.html" class="">About</a><a href="formats.html" class="">Formats</a><a href="location.html" class="">Honorarium</a><a href="wishlist.html" class="">Wishlist</a><a href="contacts.html" class="">Contacts</a><a href="gallery.html" class="current">Gallery</a></div></div>
-<h1>Gallery</h1>
-<p>Content coming soon…</p>
-</div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery – Sophia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top left,#0b1020,#071a2e);
+      color:#e4e7ef;
+      padding:40px 20px 60px;
+      overflow-x:hidden;
+    }
+
+    .page{max-width:1080px;margin:0 auto;}
+
+    /* TOP NAV (как на других страницах) */
+    .topnav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:32px;
+    }
+    .logo{
+      font-size:26px;
+      font-weight:600;
+      letter-spacing:0.32em;
+      text-transform:uppercase;
+    }
+    .nav-links{display:flex;flex-wrap:wrap;gap:10px;}
+    .nav-links a{
+      color:#e4e7ef;
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      padding:6px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background:rgba(255,255,255,0.04);
+      transition:0.25s;
+    }
+    .nav-links a:hover{
+      background:rgba(255,255,255,0.18);
+      box-shadow:0 0 14px rgba(120,170,255,0.45);
+      transform:translateY(-1px);
+    }
+    .nav-links a.current{
+      background:rgba(255,255,255,0.22);
+      box-shadow:0 0 18px rgba(120,170,255,0.55);
+    }
+
+    /* Заголовок */
+    h1{
+      font-size:30px;
+      margin:8px 0 4px;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+    }
+    .subtitle{
+      font-size:14px;
+      color:#cfd4ef;
+      max-width:620px;
+      line-height:1.7;
+      margin-bottom:26px;
+    }
+
+    /* GRID ГАЛЕРЕИ */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:18px;
+    }
+
+    .gallery-item{
+      position:relative;
+      border-radius:20px;
+      overflow:hidden;
+      cursor:pointer;
+      background:rgba(7,18,40,0.9);
+      box-shadow:0 22px 55px rgba(2,6,23,0.85);
+      transform:translateY(0);
+      transition:transform 0.30s ease, box-shadow 0.30s ease, filter 0.30s ease;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transform:scale(1.02);
+      transition:transform 0.35s ease;
+    }
+
+    .gallery-item:hover{
+      transform:translateY(-4px);
+      box-shadow:0 30px 70px rgba(90,140,255,0.70);
+      filter:brightness(1.05);
+    }
+    .gallery-item:hover img{
+      transform:scale(1.06);
+    }
+
+    /* LIGHTBOX – полноэкранный просмотр */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
+      background:rgba(2,6,23,0.92);
+      backdrop-filter:blur(14px);
+    }
+    .lightbox.active{
+      display:flex;
+    }
+
+    .lightbox-img{
+      max-width:90vw;
+      max-height:90vh;
+      border-radius:22px;
+      box-shadow:0 30px 80px rgba(0,0,0,0.85);
+      object-fit:contain;
+    }
+
+    .lightbox-close{
+      position:fixed;
+      top:22px;
+      right:30px;
+      font-size:34px;
+      color:#f5f7ff;
+      background:transparent;
+      border:none;
+      cursor:pointer;
+      text-shadow:0 0 16px rgba(0,0,0,0.8);
+    }
+
+    .lightbox-arrow{
+      position:fixed;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:34px;
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,0.5);
+      background:rgba(7,18,40,0.8);
+      color:#f5f5ff;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 18px 40px rgba(0,0,0,0.85);
+      transition:background 0.25s ease, transform 0.25s ease;
+    }
+    .lightbox-arrow:hover{
+      background:rgba(32,80,220,0.95);
+      transform:translateY(-50%) scale(1.03);
+    }
+    .lightbox-arrow.prev{left:26px;}
+    .lightbox-arrow.next{right:26px;}
+
+    @media(max-width:700px){
+      .lightbox-arrow{
+        width:44px;
+        height:44px;
+        font-size:26px;
+      }
+      .lightbox-close{
+        top:16px;
+        right:18px;
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <!-- NAV -->
+    <div class="topnav">
+      <div class="logo">SOPHIA</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="formats.html">Formats</a>
+        <a href="location.html">Honorarium</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="gallery.html" class="current">Gallery</a>
+      </div>
+    </div>
+
+    <h1>Gallery</h1>
+    <div class="subtitle">
+      A glimpse into my world — quiet moments, playful glances and elegant evenings
+      you’re welcome to share with me.
+    </div>
+
+    <!-- СЕТКА ФОТО -->
+    <div class="gallery-grid">
+      <!-- Каждое изображение – отдельный блок.
+           Меняй имена файлов на свои: gallery-1.jpg, gallery-2.jpg и т.д.
+           Можно добавить data-full, если хочешь отдельную большую версию. -->
+
+      <div class="gallery-item">
+        <img src="gallery-1.jpg" alt="Sophia" data-full="gallery-1-large.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery-2.jpg" alt="Sophia" data-full="gallery-2-large.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery-3.jpg" alt="Sophia" data-full="gallery-3-large.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery-4.jpg" alt="Sophia" data-full="gallery-4-large.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery-5.jpg" alt="Sophia" data-full="gallery-5-large.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery-6.jpg" alt="Sophia" data-full="gallery-6-large.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery-7.jpg" alt="Sophia" data-full="gallery-7-large.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery-8.jpg" alt="Sophia" data-full="gallery-8-large.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery-9.jpg" alt="Sophia" data-full="gallery-9-large.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery-10.jpg" alt="Sophia" data-full="gallery-10-large.jpg">
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-arrow prev" id="prevBtn">&#10094;</button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImg">
+    <button class="lightbox-arrow next" id="nextBtn">&#10095;</button>
+    <button class="lightbox-close" id="closeBtn">&times;</button>
+  </div>
+
+  <script>
+    const items = Array.from(document.querySelectorAll('.gallery-item img'));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    let currentIndex = 0;
+
+    function openLightbox(index){
+      currentIndex = index;
+      const img = items[currentIndex];
+      const fullSrc = img.getAttribute('data-full') || img.src;
+      lightboxImg.src = fullSrc;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox(){
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    }
+
+    function showNext(dir){
+      currentIndex = (currentIndex + dir + items.length) % items.length;
+      const img = items[currentIndex];
+      const fullSrc = img.getAttribute('data-full') || img.src;
+      lightboxImg.src = fullSrc;
+    }
+
+    items.forEach((img, index)=>{
+      img.addEventListener('click', ()=>openLightbox(index));
+    });
+
+    prevBtn.addEventListener('click', ()=>showNext(-1));
+    nextBtn.addEventListener('click', ()=>showNext(1));
+    closeBtn.addEventListener('click', closeLightbox);
+
+    // закрытие по клику вне картинки
+    lightbox.addEventListener('click', (e)=>{
+      if(e.target === lightbox){
+        closeLightbox();
+      }
+    });
+
+    // закрытие по Esc + стрелки на клавиатуре
+    document.addEventListener('keydown', (e)=>{
+      if(!lightbox.classList.contains('active')) return;
+      if(e.key === 'Escape') closeLightbox();
+      if(e.key === 'ArrowRight') showNext(1);
+      if(e.key === 'ArrowLeft') showNext(-1);
+    });
+  </script>
+</body>
+</html>
