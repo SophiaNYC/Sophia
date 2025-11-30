@@ -15,7 +15,10 @@
       overflow-x:hidden;
     }
 
-    .page{max-width:1080px;margin:0 auto;}
+    .page{
+      max-width:1080px;
+      margin:0 auto;
+    }
 
     /* TOP NAV */
     .topnav{
@@ -28,13 +31,20 @@
       opacity:0;
       animation:fadeIn 0.6s ease-out 0.1s forwards;
     }
+
     .logo{
       font-size:26px;
       font-weight:600;
       letter-spacing:0.32em;
       text-transform:uppercase;
     }
-    .nav-links{display:flex;flex-wrap:wrap;gap:10px;}
+
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
     .nav-links a{
       color:#e4e7ef;
       text-decoration:none;
@@ -47,27 +57,45 @@
       background:rgba(255,255,255,0.04);
       transition:0.25s;
     }
+
     .nav-links a:hover{
       background:rgba(255,255,255,0.18);
       box-shadow:0 0 14px rgba(120,170,255,0.45);
       transform:translateY(-1px);
     }
+
     .nav-links a.current{
       background:rgba(255,255,255,0.22);
       box-shadow:0 0 18px rgba(120,170,255,0.55);
     }
 
-    /* SOCIAL ICON BAR */
-    .social-bar {
+    /* P411 banner + profile buttons */
+    .social-container{
       display:flex;
-      justify-content:center;
-      gap:14px;
-      margin:20px 0 10px;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      margin:10px 0 24px;
       opacity:0;
-      animation:fadeIn 0.6s ease-out 0.25s forwards;
+      animation:fadeIn 0.6s ease-out 0.2s forwards;
     }
 
-    .social-item {
+    .social-left img{
+      display:block;
+      max-width:100%;
+      height:auto;
+      border-radius:6px;
+      border:1px solid rgba(255,255,255,0.35);
+    }
+
+    .social-right{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+
+    .social-item{
       padding:8px 16px;
       font-size:11px;
       letter-spacing:0.14em;
@@ -81,10 +109,20 @@
       white-space:nowrap;
     }
 
-    .social-item:hover {
+    .social-item:hover{
       background:rgba(255,255,255,0.22);
       box-shadow:0 0 12px rgba(120,170,255,0.45);
       transform:translateY(-2px);
+    }
+
+    @media (max-width:900px){
+      .social-container{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .social-right{
+        justify-content:flex-start;
+      }
     }
 
     /* HERO GRID */
@@ -104,7 +142,7 @@
     /* LEFT TEXT — CARD c подсветкой */
     .hero-text{
       position:relative;
-      margin-top:32px;
+      margin-top:8px;
 
       background:rgba(7,18,40,0.92);
       border-radius:22px;
@@ -197,13 +235,13 @@
       transform:translateY(-1px);
     }
 
-    /* HERO RIGHT – БОЛЬШОЕ ФОТО */
+    /* HERO RIGHT – PHOTO */
     .hero-photo-box{
       position:relative;
       width:100%;
       max-width:560px;
       margin-left:-8px;
-      margin-top:-40px;
+      margin-top:-20px;
       border-radius:30px;
       overflow:hidden;
       background:rgba(4,10,25,0.55);
@@ -289,17 +327,28 @@
       </div>
     </div>
 
-    <!-- SOCIAL ICON BAR -->
-    <div class="social-bar">
-      <a href="https://tryst.link/escort/sophiausa2025" target="_blank" class="social-item">Tryst</a>
-      <a href="https://www.slixa.com/new-york/new-york/sophia-635" target="_blank" class="social-item">Slixa</a>
-      <a href="https://www.eros.com/" target="_blank" class="social-item">Eros</a>
-      <a href="https://privatedelights.ch/myprofile" target="_blank" class="social-item">PD</a>
+    <!-- P411 banner + profile buttons -->
+    <div class="social-container">
+      <div class="social-left">
+        <a href="https://preferred411.com/admirer/register?ref=455883" target="_blank">
+          <img src="https://preferred411.com/a/preferred2016_1.gif"
+               alt="Preferred411.com"
+               width="468"
+               height="60">
+        </a>
+      </div>
+
+      <div class="social-right">
+        <a href="https://tryst.link/escort/sophiausa2025" target="_blank" class="social-item">Tryst</a>
+        <a href="https://www.slixa.com/new-york/new-york/sophia-635" target="_blank" class="social-item">Slixa</a>
+        <a href="https://www.eros.com/" target="_blank" class="social-item">Eros</a>
+        <a href="https://privatedelights.ch/myprofile" target="_blank" class="social-item">PD</a>
+      </div>
     </div>
 
     <!-- HERO -->
     <section class="hero">
-      <!-- ЛЕВЫЙ БЛОК: ТЕКСТ В КРАСИВОЙ РАМКЕ -->
+      <!-- LEFT TEXT CARD -->
       <div class="hero-text">
         <div class="hero-label">WELCOME</div>
 
@@ -342,7 +391,7 @@
         </div>
       </div>
 
-      <!-- ПРАВАЯ КОЛОНКА: ПОДСВЕЧЁННОЕ ФОТО -->
+      <!-- RIGHT PHOTO -->
       <div class="hero-photo-box">
         <img src="home-sophia.jpg" alt="Sophia portrait">
       </div>
