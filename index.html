@@ -28,7 +28,6 @@
       opacity:0;
       animation:fadeIn 0.6s ease-out 0.1s forwards;
     }
-  
     .logo{
       font-size:26px;
       font-weight:600;
@@ -58,36 +57,24 @@
       box-shadow:0 0 18px rgba(120,170,255,0.55);
     }
 
-    /* NEW SOCIAL SECTION WITH BANNER */
-    .social-container{
+    /* SOCIAL ICON BAR */
+    .social-bar {
       display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-top:10px;
-      margin-bottom:30px;
+      justify-content:center;
+      gap:14px;
+      margin:20px 0 10px;
       opacity:0;
-      animation:fadeIn 0.6s ease-out 0.20s forwards;
-    }
-
-    .social-left img{
-      display:block;
-      border-radius:8px;
-      border:1px solid rgba(255,255,255,0.28);
-    }
-
-    .social-right{
-      display:flex;
-      gap:12px;
+      animation:fadeIn 0.6s ease-out 0.25s forwards;
     }
 
     .social-item {
-      padding:8px 18px;
+      padding:8px 16px;
       font-size:11px;
       letter-spacing:0.14em;
       text-transform:uppercase;
       border-radius:50px;
-      border:1px solid rgba(255,255,255,0.26);
-      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.25);
+      background:rgba(255,255,255,0.06);
       color:#e4e7ef;
       text-decoration:none;
       transition:0.25s ease;
@@ -106,7 +93,6 @@
       grid-template-columns:1.35fr 1.15fr;
       gap:26px;
       align-items:center;
-      margin-top:20px;
     }
 
     @media(max-width:900px){
@@ -115,6 +101,7 @@
       }
     }
 
+    /* LEFT TEXT — CARD c подсветкой */
     .hero-text{
       position:relative;
       margin-top:32px;
@@ -210,6 +197,7 @@
       transform:translateY(-1px);
     }
 
+    /* HERO RIGHT – БОЛЬШОЕ ФОТО */
     .hero-photo-box{
       position:relative;
       width:100%;
@@ -226,15 +214,35 @@
                  softGlow 7s ease-in-out 1.4s infinite alternate;
     }
 
+    .hero-photo-box::before{
+      content:"";
+      position:absolute;
+      inset:-18%;
+      background:
+        radial-gradient(circle at 0% 0%,rgba(163,199,255,0.55),transparent 60%),
+        radial-gradient(circle at 100% 100%,rgba(117,167,255,0.45),transparent 60%);
+      mix-blend-mode:screen;
+      z-index:0;
+    }
+
     .hero-photo-box img{
       position:relative;
       z-index:1;
-      width:100%;
       display:block;
+      width:100%;
+      height:auto;
+      object-fit:contain;
       border-radius:30px;
+      transform:scale(1.04);
+      transition:transform 0.35s ease, box-shadow 0.35s ease;
     }
 
+    .hero-photo-box:hover img{
+      transform:scale(1.07) translateY(-4px);
+      box-shadow:0 38px 85px rgba(120,170,255,0.75);
+    }
 
+    /* Animations */
     @keyframes fadeInUp{
       from{opacity:0;transform:translateY(22px);}
       to{opacity:1;transform:translateY(0);}
@@ -261,13 +269,12 @@
 </head>
 <body>
 
-  <!-- маленький плеер -->
+  <!-- маленький плеер, если есть music.mp3 -->
   <audio controls loop style="position:fixed; bottom:20px; left:20px; z-index:1000; opacity:0.9;">
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
   <div class="page">
-
     <!-- NAV -->
     <div class="topnav">
       <div class="logo">SOPHIA</div>
@@ -282,40 +289,51 @@
       </div>
     </div>
 
-    <!-- SOCIAL + BANNER BAR -->
-    <div class="social-container">
-
-      <!-- LEFT — BIG BANNER -->
-      <div class="social-left">
-        <a href="https://preferred411.com/admirer/register?ref=455883" target="_blank">
-          <img src="https://preferred411.com/a/preferred2016_1.gif"
-               width="468" height="60"
-               alt="Preferred411.com">
-        </a>
-      </div>
-
-      <!-- RIGHT — social buttons -->
-      <div class="social-right">
-        <a href="https://tryst.link/escort/sophiausa2025" target="_blank" class="social-item">TRYST</a>
-        <a href="https://www.slixa.com/new-york/new-york/sophia-635" target="_blank" class="social-item">SLIXA</a>
-        <a href="https://www.eros.com/" target="_blank" class="social-item">EROS</a>
-        <a href="https://privatedelights.ch/myprofile" target="_blank" class="social-item">PD</a>
-      </div>
-
+    <!-- SOCIAL ICON BAR -->
+    <div class="social-bar">
+      <a href="https://tryst.link/escort/sophiausa2025" target="_blank" class="social-item">Tryst</a>
+      <a href="https://www.slixa.com/new-york/new-york/sophia-635" target="_blank" class="social-item">Slixa</a>
+      <a href="https://www.eros.com/" target="_blank" class="social-item">Eros</a>
+      <a href="https://privatedelights.ch/myprofile" target="_blank" class="social-item">PD</a>
     </div>
 
     <!-- HERO -->
     <section class="hero">
+      <!-- ЛЕВЫЙ БЛОК: ТЕКСТ В КРАСИВОЙ РАМКЕ -->
       <div class="hero-text">
         <div class="hero-label">WELCOME</div>
 
         <div class="hero-sub">
-          <p>Welcome to the twilight of my world — ...</p>
-          <p>If you’re longing for a presence...</p>
-          <p>I am the spark in the silence...</p>
-          <p>Explore my world...</p>
+          <p>
+            Welcome to the twilight of my world — a place where desire glows in the dark
+            and curiosity becomes the sweetest temptation. I am Sophia, a woman woven from
+            moonlit whispers and forbidden dreams, here to pull you gently yet irresistibly
+            into my orbit.
+          </p>
+
+          <p>
+            If you’re longing for a presence that ignites the moment you enter the room…
+            if you crave a connection that hums with tension, mystery, and the promise of
+            something beautifully intense… you’ve already taken your first step toward me.
+          </p>
+
+          <p>
+            I am the spark in the silence, the warmth behind a slow smile, the soft danger
+            of a thought you can’t shake.
+          </p>
+
+          <p>
+            Explore my world with an open mind and a bold heart — each line, each glance,
+            each hidden corner is crafted to awaken your senses in ways you didn’t expect.
+            And when you feel that quiet pull… that magnetic ache of wanting just a little more…
+          </p>
+
           <p>Don’t ignore it.</p>
-          <p>Reach out...</p>
+
+          <p>
+            Reach out. Let the story begin. I’m already feeling the thrill of your attention —
+            and the delicious anticipation of what may unfold between us.
+          </p>
         </div>
 
         <div class="hero-buttons">
@@ -324,6 +342,7 @@
         </div>
       </div>
 
+      <!-- ПРАВАЯ КОЛОНКА: ПОДСВЕЧЁННОЕ ФОТО -->
       <div class="hero-photo-box">
         <img src="home-sophia.jpg" alt="Sophia portrait">
       </div>
