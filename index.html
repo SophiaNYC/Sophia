@@ -57,17 +57,33 @@
       box-shadow:0 0 18px rgba(120,170,255,0.55);
     }
 
-    /* SOCIAL ICON BAR */
-    .social-bar {
+    /* P411 BANNER + PROFILE BUTTONS */
+    .social-bar{
       display:flex;
-      justify-content:center;
-      gap:14px;
-      margin:20px 0 10px;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin:10px 0 20px;
       opacity:0;
       animation:fadeIn 0.6s ease-out 0.25s forwards;
     }
 
-    .social-item {
+    .p411-link img{
+      display:block;
+      max-width:100%;
+      height:auto;
+      border-radius:6px;
+      border:1px solid rgba(255,255,255,0.35);
+    }
+
+    .social-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+
+    .social-item{
       padding:8px 16px;
       font-size:11px;
       letter-spacing:0.14em;
@@ -81,10 +97,20 @@
       white-space:nowrap;
     }
 
-    .social-item:hover {
+    .social-item:hover{
       background:rgba(255,255,255,0.22);
       box-shadow:0 0 12px rgba(120,170,255,0.45);
       transform:translateY(-2px);
+    }
+
+    @media(max-width:900px){
+      .social-bar{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .social-links{
+        justify-content:flex-start;
+      }
     }
 
     /* HERO GRID */
@@ -289,12 +315,23 @@
       </div>
     </div>
 
-    <!-- SOCIAL ICON BAR -->
+    <!-- BANNER + SOCIAL LINKS -->
     <div class="social-bar">
-      <a href="https://tryst.link/escort/sophiausa2025" target="_blank" class="social-item">Tryst</a>
-      <a href="https://www.slixa.com/new-york/new-york/sophia-635" target="_blank" class="social-item">Slixa</a>
-      <a href="https://www.eros.com/" target="_blank" class="social-item">Eros</a>
-      <a href="https://privatedelights.ch/myprofile" target="_blank" class="social-item">PD</a>
+      <!-- P411 banner (картинка лежит у тебя в репозитории как p411-banner.gif) -->
+      <a href="https://preferred411.com/admirer/register?ref=455883"
+         target="_blank"
+         class="p411-link">
+        <img src="p411-banner.gif"
+             alt="Preferred411.com">
+      </a>
+
+      <!-- Кнопки профилей -->
+      <div class="social-links">
+        <a href="https://tryst.link/escort/sophiausa2025" target="_blank" class="social-item">Tryst</a>
+        <a href="https://www.slixa.com/new-york/new-york/sophia-635" target="_blank" class="social-item">Slixa</a>
+        <a href="https://www.eros.com/" target="_blank" class="social-item">Eros</a>
+        <a href="https://privatedelights.ch/myprofile" target="_blank" class="social-item">PD</a>
+      </div>
     </div>
 
     <!-- HERO -->
